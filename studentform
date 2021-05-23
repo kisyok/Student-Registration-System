@@ -1,0 +1,34 @@
+#!/bin/bash
+
+clear
+	echo -e "Add New Student Form"
+	echo -e "===================="
+	echo
+	echo -n "Student ID     :"; read si
+	echo -n "Student Name   :"; read sn
+	echo -n "Birth Date     :"; read bd
+	echo -n "Contact Number :"; read no
+	echo -e "\nAdd Another Student? (y) es or (q) uit :\n" ;read option
+	echo  "Press (q) to return to College Management Menu"
+	export si
+	export sn
+
+	if [ -z "$si" ] || [ -z "$sn" ] || [ -z "$bd" ] || [ -z "$no"]
+	then 
+	echo "Empty Input Found!"
+	else
+	echo "$a:$si:$sn:$bd:$no" >> student.txt
+	fi
+
+case $option in
+
+y)
+./sample2;;
+
+q)
+./menu.sh;;
+
+*)
+echo "Wrong Input";;
+esac
+

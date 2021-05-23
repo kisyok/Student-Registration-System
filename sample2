@@ -1,0 +1,48 @@
+#!/bin/bash
+
+clear
+	echo "Program Selection Menu"
+	echo -e "======================\n"
+	echo "T -RIT (Bachelor in Information Technology)"
+	echo "D -RSD (Bachelor in Software Development)"
+	echo "S -RST (Bachelor in Interactive software Technology)"
+	echo "E -REI (Bachelor in Enterprise Information System)"
+	echo -e "F -RSF (Bachelor in Software Engeneering)\n"
+	echo -e "Q -Quit (Return to College Management Menu)\n"
+	echo -n "Please select a choice: "; read c1
+
+case $c1 in
+T|t)
+a="RIT"
+export a
+./studentform;;
+
+D|d)
+a="RSD"
+export a
+./studentform;;
+
+S|s)
+a="RST"
+export a
+./studentform;;
+
+E|e)
+a="REI"
+export a
+./studentform;;
+
+F|f)
+a="RSF"
+export a
+./studentform;;
+
+Q|q)
+./menu ;;
+
+*)
+echo "Wrong Input" ;;
+
+esac
+
+

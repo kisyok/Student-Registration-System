@@ -1,0 +1,55 @@
+ #!/bin/bash
+ 
+ clear
+	echo -e "\t\t\tStudent Validation Form"
+	echo -e "_______________________________________________________________________________"
+	echo -n "Please enter the Student's ID Number:"; read id
+	echo ""
+
+	file="/home/kisyok/student.txt"
+	while IFS= read -r line
+	do
+ 	   IFS=: read -r x1 x2 x3 x4 x5 <<< "$line"
+	   if [ $id == $x2 ]
+	   then
+
+	      StringRe="Result"
+  	      String=$id$StringRe
+	      export String
+	      if [ -z "$id" ]
+		then
+		echo "Empty input found"
+	      else
+		echo "Student ID  : $id" >> "$String".txt
+		echo "" >> "$String".txt
+		echo "Student NAME: $id" >> "$String".txt
+		echo "" >> "$String".txt
+		echo "================================================================================" >> "$String".txt
+		echo "Course Code:          Marks Obtained:          Grade Obtained:         Remark:" >> "$String".txt
+		echo "================================================================================" >> "$String".txt
+		echo "" >> "$String".txt
+	      fi
+
+	      echo "Student Name (auto display): $x3"
+	      echo ""
+	      echo "Programme (auto display): $x1"
+	      echo ""
+	
+	fi
+	done < "$file"
+
+	read -p "Press (n) to continue to enter the student's marks or (q) to quit from the prompt:" choice
+		case $choice in
+		n|N)
+		./studentexamination;;
+		q|Q)
+		clear
+		echo "Quit from prompt";;
+		*)
+		echo "Wrong input";;
+		esac
+	
+	
+	      
+	
+	

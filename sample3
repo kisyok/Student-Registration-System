@@ -1,0 +1,29 @@
+#!/bin/bash
+
+clear
+	echo -e "\t\t\t\tAdd New Course Form\t\t\t\t"
+	echo -e "\t\t\t\t===================\t\t\t\t"
+	echo -n "Course Code: "; read cc
+	echo -n "Course Name: "; read cn
+	echo -n "Credit Hours: "; read ch
+	echo -e "\nAdd Another Course? (y) es or (q) uit :\n" ;read option
+	echo "Press (q) to return to College Management Menu"
+
+	
+	if [ -z "$cc" ] || [ -z "$cn" ] || [ -z "$ch" ]
+	then
+	echo "Empty Input Found!"
+	else
+	echo "$cc:$cn:$ch" >> course.txt
+	fi
+
+case $option in
+
+y|Y)
+./sample3;;
+
+q|Q)
+./menu.sh;;
+*)
+echo "Wrong Input" ;;
+esac

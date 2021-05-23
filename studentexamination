@@ -1,0 +1,40 @@
+#!/bin/bash
+
+clear
+
+	echo -e "\t\t\tStudent Examination Marks Form"
+	echo -e "_______________________________________________________________________________"
+	echo -n "Please enter the course code: "; read code
+	echo ""
+	echo -n "Please enter the marks obtained: "; read score
+   	echo ""
+	export score
+
+	file="/home/kisyok/course.txt"
+	while IFS= read -r line; do
+ 	   IFS=: read -r x1 x2 x3 <<< "$line"
+	   if [ "$code" == "$x1" ]
+	   then
+		source ./mark
+		grading $score
+		if [ "$score" -gt 100 ] || [ "$score" -lt 0 ]
+		then
+		echo ""
+		else
+		echo "$code              $score                       $grade                       $remarks" >> "$String".txt
+		echo "" >> "$String".txt
+		fi
+	   fi
+	done < "$file"
+
+	echo -n "Press (y) to continue to enter the student's marks or (b) to back previous "; read choice
+		case $choice in
+           	   y|Y) 
+	   	   ./studentexamination;;
+	   	   b|B)
+	   	   ./studentvalidation;;
+	   	   *)
+           	   echo "Wrong input";;
+	   	   esac
+
+	

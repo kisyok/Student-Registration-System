@@ -1,0 +1,5 @@
+BACS1234:Information Technology:4
+BACS2053:Object-Oriented Programming:3
+BACS2093:Operating System:3
+BAIT2112:Digital Multimedia:2
+BAIT3113:VB.net Programming:3
